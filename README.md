@@ -68,7 +68,7 @@ let sdk = new SDK({
 let client = new RingCentralClient(sdk);
 
 // Log into RingCentral
-sdk.login({
+sdk.platform().login({
 	"username": "{username}",
 	"extension": "{extension}",
 	"password": "{password}"
@@ -108,7 +108,7 @@ sdk.login({
 
     To get notications when calls come in, go out or ends, subscribe to the **Presence Event**:
     ```javascript
-    let subscription = client.createSubscription();
+    let subscription = sdk.createSubscription();
 
     subscription.on(subscription.events.notification, function (msg) {
         let presenceEvt = msg.body; // Detail for presence event: https://developer.ringcentral.com/api-docs/latest/index.html?section=RefNotifications.html#!#RefGetDetailedPresenceEvent
